@@ -9,7 +9,7 @@ app.secret_key = 'supersecretkey' # Mude esta chave em produção!
 # --- Rota para a página de Login ---
 # Esta rota responde a requisições GET para a raiz ('/') e para '/login'
 @app.route('/', methods=['GET', 'POST'])
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/Artelie\apresentacao\view\templates\login.html', methods=['GET', 'POST'])
 def login():
     """
     Renderiza a página de login e processa as submissões do formulário de login.
@@ -29,7 +29,7 @@ def login():
             # Permanece na página de login para que o usuário possa tentar novamente
             return render_template('login.html')
     # Se for uma requisição GET, apenas renderiza o formulário de login
-    return render_template('login.html')
+    return render_template('Artelie\apresentacao\view\templates\login.html')
 
 # --- Rota para a página de Cadastro ---
 # Esta rota responde a requisições GET e POST para '/register'
