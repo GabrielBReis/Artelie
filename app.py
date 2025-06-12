@@ -1,18 +1,11 @@
-# Importa o Flask, render_template (para renderizar HTML) e request (para acessar dados de requisições)
 from flask import Flask, render_template, request, redirect, url_for, flash
 import os
 
-# Importa o módulo os para manipulação de caminhos de arquivos (opcional)
-
-# Cria uma instância da aplicação Flask
 app = Flask(__name__)
-# Define uma chave secreta para a sessão, usada para flash messages (mensagens temporárias)
 app.secret_key = 'supersecretkey' # Mude esta chave em produção!
 
-# --- Rota para a página de Login ---
-# Esta rota responde a requisições GET para a raiz ('/') e para '/login'
+
 @app.route('/', methods=['GET', 'POST'])
-#@app.route('/Artelie/apresentacao/view/templates/login.html', methods=['GET', 'POST'])
 def login():
     """
     Renderiza a página de login e processa as submissões do formulário de login.
@@ -22,16 +15,12 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        # --- Lógica de Autenticação Simplificada (APENAS PARA EXEMPLO) ---
-        # Em uma aplicação real, você verificaria o usuário e senha em um banco de dados
         if username == 'user' and password == 'password':
             flash('Login realizado com sucesso!', 'success') # Mensagem de sucesso
             return redirect(url_for('success')) # Redireciona para a página de sucesso
         else:
-            flash('Usuário ou senha inválidos.', 'error') # Mensagem de erro
-            # Permanece na página de login para que o usuário possa tentar novamente
+            flash('Usuário ou senha inválidos.', 'error') 
             return render_template('login.html')
-    # Se for uma requisição GET, apenas renderiza o formulário de login
     return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -46,18 +35,16 @@ def register():
 
         if new_password != confirm_password:
             flash('As senhas não coincidem.', 'error')
-            return render_template('cadastro.html') # Permanece na página de cadastro
+            return render_template('cadastro.html')
         elif len(new_password) < 6:
             flash('A senha deve ter pelo menos 6 caracteres.', 'error')
             return render_template('cadastro.html')
         else:
-            # Simula um cadastro bem-sucedido
             flash('Cadastro realizado com sucesso! Faça login.', 'success')
             return redirect(url_for('login')) # Redireciona para a página de login após o cadastro
-    # Se for uma requisição GET, apenas renderiza o formulário de cadastro
     return render_template('cadastro.html')
 
-# --- Rota para a página de Sucesso ---
+
 @app.route('/success')
 def success():
     """
