@@ -25,9 +25,7 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    """
-    Renderiza a página de cadastro e processa as submissões do formulário de cadastro.
-    """
+    
     if request.method == 'POST':
         new_username = request.form['new_username']
         new_password = request.form['new_password']
@@ -45,12 +43,10 @@ def register():
     return render_template('cadastro.html')
 
 
-@app.route('/success')
+@app.route('/success', methods=['GET', 'POST'])
 def success():
-    """
-    Página simples para indicar que o login foi bem-sucedido.
-    """
-    return render_template('cadastro.html')
+    return render_template('success.html')  # Crie esse arquivo .html
+
 
 if __name__ == '__main__':
     # Define o modo de depuração para True (útil para desenvolvimento, desative em produção)
