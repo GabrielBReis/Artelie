@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "nome": "samplix",
+        "email": "djdjd",
+        "senha": "aaa",
+        "foto_perfil": null,
+        "biografia": null,
+        "data_nasc": null,
+        "enderecos": []
+    }
+]
