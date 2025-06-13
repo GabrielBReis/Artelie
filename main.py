@@ -4,9 +4,6 @@ import negocio.model.usuario as usuario
 USUARIOS_JSON = "usuarios.json"
 
 def inicializar_json():
-    """
-    Cria o arquivo usuarios.json vazio caso ele ainda não exista.
-    """
     if not os.path.exists(USUARIOS_JSON):
         with open(USUARIOS_JSON, "w", encoding="utf-8") as f:
             f.write("[]")  # lista vazia de usuários
@@ -39,6 +36,7 @@ def login():
         print("Usuário ou senha incorretos.")
 
 def cadastro():
+    tipo=input("Você quer se cadastrar como um usuário (u) ou artesão(a)?")
     print("\n=== Tela de Cadastro ===")
     nome = input("Nome: ")
     email = input("Email: ")
@@ -47,8 +45,13 @@ def cadastro():
     if senha != senha2:
         print("As senhas não coincidem. Tente novamente.")
         cadastro()
+    data_nasc = input("Data de nascimento (DD/MM/AAAA): ")
+    enderecos = input("Endereços (separados por vírgula): ").split(",") if input("Deseja adicionar endereços? (s/n): ").lower() == 's' else []
+    if usuario.Usuario.autenticar(email, senha):
+        print("Já existe um usuário cadastrado com este email.")
+        tela_inicial()
     else:
-        novoCadastro = usuario.Usuario(nome, email, senha)
+        novoCadastro = usuario.Usuario(nome, email, senha, tipo, data_nasc, enderecos)
         novoCadastro.salvar()  # agora salva de fato no JSON
         print("Cadastro realizado com sucesso!")
         tela_inicial()

@@ -4,18 +4,15 @@ import os
 USUARIOS_JSON = "usuarios.json"
 
 class Usuario:
-    def __init__(self, nome, email, senha, foto_perfil=None, biografia=None, data_nasc=None, enderecos=None):
-        self.id = None  # Será atribuído ao salvar
+    def __init__(self, nome, email, senha, tipo=None, data_nasc=None, enderecos=None):
+        self.id = None  
         self.nome = nome
         self.email = email
         self.senha = senha
-        self.foto_perfil = foto_perfil
-        self.biografia = biografia
+        self.tipo = tipo
         self.data_nasc = data_nasc
         self.enderecos = enderecos or []
-        self.produtos = []
-        self.pedidos = []
-        self.avaliacoes = []
+        #self.biografia = biografia
 
     def salvar(self):
         usuarios = Usuario.carregar_usuarios()
@@ -30,10 +27,10 @@ class Usuario:
             "nome": self.nome,
             "email": self.email,
             "senha": self.senha,
-            "foto_perfil": self.foto_perfil,
-            "biografia": self.biografia,
+            "tipo": self.tipo,
             "data_nasc": self.data_nasc,
-            "enderecos": self.enderecos
+            "enderecos": self.enderecos,
+            #"biografia": self.biografia
         }
 
         usuarios.append(novo_usuario)
