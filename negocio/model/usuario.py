@@ -52,3 +52,11 @@ class Usuario:
             if u["email"] == email and u["senha"] == senha:
                 return True
         return False
+    
+    @staticmethod
+    def autenticar_email(email):
+        usuarios = Usuario.carregar_usuarios()
+        for u in usuarios:
+            if u["email"] == email:
+                return True
+        return False
