@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "nome": "",
+        "email": "blas@gmail.com",
+        "senha": "As123456789",
+        "tipo": "u",
+        "data_nasc": "12/02/2005",
+        "enderecos": []
+    }
+]
