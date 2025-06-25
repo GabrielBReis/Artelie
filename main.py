@@ -3,6 +3,13 @@ import os
 import re
 from datetime import datetime
 import negocio.model.usuario as usuario
+from negocio.service.produto_service import (
+    adicionar_produto,
+    editar_produto,
+    inicializar_produtos_json,
+    listar_produtos,
+    remover_produto
+)
 from utils.utils import valida_input_eh_num
 
 USUARIOS_JSON = "usuarios.json"
@@ -10,7 +17,7 @@ USUARIOS_JSON = "usuarios.json"
 def inicializar_json():
     if not os.path.exists(USUARIOS_JSON):
         with open(USUARIOS_JSON, "w", encoding="utf-8") as f:
-            f.write("[]")  
+            f.write("[]")
 
 def tela_inicial():
     while True:
@@ -21,7 +28,7 @@ def tela_inicial():
         print("3. Sair")
         opcao = input("Escolha uma opção (apenas números): ")
 
-        if isinstance(int(opcao) , numbers.Number) and len(opcao) == 1:
+        if isinstance(int(opcao), numbers.Number) and len(opcao) == 1:
             opcao = int(opcao)
         else:
             print("Por favor, insira apenas um número")
@@ -54,16 +61,6 @@ def validar_data(data):
 def validar_endereco(endereco):
     return endereco and len(endereco.strip()) >= 5
 
-def login():
-    print("\n=== Tela de Login ===")
-    email = input("Email: ")
-    senha = input("Senha: ")
-    if not validar_email(email):
-        print("Email inválido.")
-        return
-    if usuario.Usuario.autenticar(email, senha):
-        print("Login realizado com sucesso!")
-        tela_usuario(email)
 def verificar_email(email):
     if not usuario.Usuario.autenticar_email(email):
         print("Email não encontrado. Você já possui cadastro?\n1. Sim\n2. Não")
@@ -73,35 +70,31 @@ def verificar_email(email):
             resposta = int(resposta)
             if resposta == 1:
                 print("Tente novamente com um email válido.")
-                return 0  # Email inválido, mas o usuário já possui cadastro
+                return 0
             elif resposta == 2:
-                return 2  # Deseja se cadastrar
+                return 2
             else:
                 print("Por favor, insira um número válido.")
-        return 0  # Email inválido, tentativa incompleta
+        return 0
     else:
-        return 1  # Email válido
-
+        return 1
 
 def login():
     print("\n==== Tela de Login ====")
     print("Insira as informações solicitadas.")
-    
+
     while True:
         email = input("Email: ")
         print("Verificando email no banco de dados...")
         resultado = verificar_email(email)
 
-        if resultado == 1:  # Email válido
+        if resultado == 1:
             break
-        
-        elif resultado == 0:  # Email inválido, mas quer tentar novamente
-            continue  # Volta ao início do loop para pedir outro e-mail
-        
-        elif resultado == 2:  # Deseja se cadastrar
+        elif resultado == 0:
+            continue
+        elif resultado == 2:
             print("Gostaria de realizar o cadastro?\n1. Sim\n2. Não")
             resposta_cadastro = input("Insira apenas números: ")
-            
             if valida_input_eh_num(resposta_cadastro):
                 resposta_cadastro = int(resposta_cadastro)
                 if resposta_cadastro == 1:
@@ -117,9 +110,11 @@ def login():
                 print("Por favor, insira apenas números.")
 
     senha = input("Senha: ")
-    # autenticação da senha aqui
-    print("Login efetuado com sucesso.\nAcessando perfil de usuário...")
-
+    if usuario.Usuario.autenticar(email, senha):
+        print("Login efetuado com sucesso.\nAcessando perfil de usuário...")
+        tela_usuario(email)
+    else:
+        print("Senha incorreta.")
 
 def cadastro():
     tipo = input("Você quer se cadastrar como um usuário (u) ou artesão(a)? ")
@@ -170,9 +165,35 @@ def tela_usuario(email):
     usuario_obj = usuario.Usuario.buscar_por_email(email)
     if usuario_obj:
         print(f"\nBem-vindo, {usuario_obj.nome}!")
+
+        if usuario_obj.tipo.lower().startswith('a'):
+            while True:
+                print("\n=== Menu do Artesão ===")
+                print("1. Listar produtos")
+                print("2. Adicionar produto")
+                print("3. Editar produto")
+                print("4. Remover produto")
+                print("5. Sair")
+                opcao = input("Escolha uma opção: ")
+
+                if opcao == "1":
+                    listar_produtos(email)
+                elif opcao == "2":
+                    adicionar_produto(email)
+                elif opcao == "3":
+                    editar_produto(email)
+                elif opcao == "4":
+                    remover_produto(email)
+                elif opcao == "5":
+                    break
+                else:
+                    print("Opção inválida.")
+        else:
+            print("Você está logado como usuário comum.")
     else:
-        print(f"\nBem-vindo, {email}!")
+        print(f"\nUsuário não encontrado.")
 
 if __name__ == "__main__":
     inicializar_json()
+    inicializar_produtos_json()
     tela_inicial()

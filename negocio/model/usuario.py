@@ -12,7 +12,6 @@ class Usuario:
         self.tipo = tipo
         self.data_nasc = data_nasc
         self.enderecos = enderecos or []
-        #self.biografia = biografia
 
     def salvar(self):
         usuarios = Usuario.carregar_usuarios()
@@ -29,8 +28,7 @@ class Usuario:
             "senha": self.senha,
             "tipo": self.tipo,
             "data_nasc": self.data_nasc,
-            "enderecos": self.enderecos,
-            #"biografia": self.biografia
+            "enderecos": self.enderecos
         }
 
         usuarios.append(novo_usuario)
@@ -60,3 +58,18 @@ class Usuario:
             if u["email"] == email:
                 return True
         return False
+
+    @staticmethod
+    def buscar_por_email(email):
+        usuarios = Usuario.carregar_usuarios()
+        for u in usuarios:
+            if u["email"] == email:
+                return Usuario(
+                    nome=u["nome"],
+                    email=u["email"],
+                    senha=u["senha"],
+                    tipo=u.get("tipo"),
+                    data_nasc=u.get("data_nasc"),
+                    enderecos=u.get("enderecos", [])
+                )
+        return None
