@@ -51,3 +51,4 @@ def success():
 if __name__ == '__main__':
     # Define o modo de depuração para True (útil para desenvolvimento, desative em produção)
     app.run(debug=True)
+
