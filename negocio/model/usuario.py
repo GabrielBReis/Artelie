@@ -1,5 +1,7 @@
+from datetime import datetime
 import json
 import os
+import re
 
 USUARIOS_JSON = "usuarios.json"
 
@@ -60,3 +62,43 @@ class Usuario:
             if u["email"] == email:
                 return True
         return False
+    
+    @staticmethod
+    def validar_email(email):
+        return re.match(r"^[\w\.-]+@[\w\.-]+\.\w+$", email) is not None
+
+    @staticmethod
+    def validar_senha(senha):
+        return re.match(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$", senha) is not None
+
+    @staticmethod
+    def validar_data(data):
+        try:
+            datetime.strptime(data, "%d/%m/%Y")
+            return True
+        except ValueError:
+            return False
+        
+    @staticmethod
+    def validar_endereco(endereco):
+        return endereco and len(endereco.strip()) >= 5
+
+    @staticmethod
+    def verificar_email(email):
+        if not Usuario.autenticar_email(email):
+            print("Email não encontrado. Você já possui cadastro?\n1. Sim\n2. Não")
+            resposta = input("Insira apenas números: ")
+
+            if valida_input_eh_num(resposta):
+                resposta = int(resposta)
+                if resposta == 1:
+                    print("Tente novamente com um email válido.")
+                    return 0  # Email inválido, mas o usuário já possui cadastro
+                elif resposta == 2:
+                    return 2  # Deseja se cadastrar
+                else:
+                    print("Por favor, insira um número válido.")
+            return 0  # Email inválido, tentativa incompleta
+        else:
+            return 1  # Email válido
+        

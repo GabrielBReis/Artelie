@@ -38,32 +38,17 @@ def tela_inicial():
         else:
             print("Opção inválida. Tente novamente.")
 
-def validar_email(email):
-    return re.match(r"^[\w\.-]+@[\w\.-]+\.\w+$", email) is not None
-
-def validar_senha(senha):
-    return re.match(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$", senha) is not None
-
-def validar_data(data):
-    try:
-        datetime.strptime(data, "%d/%m/%Y")
-        return True
-    except ValueError:
-        return False
-
-def validar_endereco(endereco):
-    return endereco and len(endereco.strip()) >= 5
-
 def login():
     print("\n=== Tela de Login ===")
     email = input("Email: ")
     senha = input("Senha: ")
-    if not validar_email(email):
+    if not usuario.Usuario.validar_email(email):
         print("Email inválido.")
         return
     if usuario.Usuario.autenticar(email, senha):
         print("Login realizado com sucesso!")
         tela_usuario(email)
+
 def verificar_email(email):
     if not usuario.Usuario.autenticar_email(email):
         print("Email não encontrado. Você já possui cadastro?\n1. Sim\n2. Não")
@@ -73,15 +58,14 @@ def verificar_email(email):
             resposta = int(resposta)
             if resposta == 1:
                 print("Tente novamente com um email válido.")
-                return 0  # Email inválido, mas o usuário já possui cadastro
+                return 0  
             elif resposta == 2:
-                return 2  # Deseja se cadastrar
+                return 2  
             else:
                 print("Por favor, insira um número válido.")
-        return 0  # Email inválido, tentativa incompleta
+        return 0  
     else:
-        return 1  # Email válido
-
+        return 1  
 
 def login():
     print("\n==== Tela de Login ====")
@@ -92,13 +76,13 @@ def login():
         print("Verificando email no banco de dados...")
         resultado = verificar_email(email)
 
-        if resultado == 1:  # Email válido
+        if resultado == 1:  
             break
         
-        elif resultado == 0:  # Email inválido, mas quer tentar novamente
-            continue  # Volta ao início do loop para pedir outro e-mail
+        elif resultado == 0:  
+            continue  
         
-        elif resultado == 2:  # Deseja se cadastrar
+        elif resultado == 2:  
             print("Gostaria de realizar o cadastro?\n1. Sim\n2. Não")
             resposta_cadastro = input("Insira apenas números: ")
             
@@ -117,7 +101,6 @@ def login():
                 print("Por favor, insira apenas números.")
 
     senha = input("Senha: ")
-    # autenticação da senha aqui
     print("Login efetuado com sucesso.\nAcessando perfil de usuário...")
 
 
@@ -127,13 +110,13 @@ def cadastro():
     nome = input("Nome: ")
     while True:
         email = input("Email: ")
-        if not validar_email(email):
+        if not usuario.Usuario.validar_email(email):
             print("Email inválido. Tente novamente.")
         else:
             break
     while True:
         senha = input("Senha: ")
-        if not validar_senha(senha):
+        if not usuario.Usuario.validar_senha(senha):
             print("A senha deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula, uma minúscula e um número.")
             continue
         senha2 = input("Confirme a senha: ")
@@ -143,7 +126,7 @@ def cadastro():
             break
     while True:
         data_nasc = input("Data de nascimento (DD/MM/AAAA): ")
-        if not validar_data(data_nasc):
+        if not usuario.Usuario.validar_data(data_nasc):
             print("Data inválida. Use o formato DD/MM/AAAA.")
         else:
             break
@@ -151,7 +134,7 @@ def cadastro():
     if input("Deseja adicionar endereços? (s/n): ").lower() == 's':
         while True:
             end = input("Endereço: ")
-            if validar_endereco(end):
+            if usuario.Usuario.validar_endereco(end):
                 enderecos.append(end)
             else:
                 print("Endereço inválido. Deve ter pelo menos 5 caracteres.")
