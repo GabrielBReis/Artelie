@@ -7,5 +7,41 @@
         "tipo": "u",
         "data_nasc": "12/02/2005",
         "enderecos": []
+    },
+    {
+        "id": 3,
+        "nome": "samplix",
+        "email": "samplix@gmail.com",
+        "senha": "$Samplix123",
+        "tipo": "a",
+        "data_nasc": "17/01/2003",
+        "enderecos": []
+    },
+    {
+        "id": 4,
+        "nome": "teste2",
+        "email": "teste@gmail.com",
+        "senha": "Teste@123",
+        "tipo": "a",
+        "data_nasc": "12/05/1980",
+        "enderecos": []
+    },
+    {
+        "id": 5,
+        "nome": "Bruno",
+        "email": "Bruno@gmail.com",
+        "senha": "Bru123456789",
+        "tipo": "u",
+        "data_nasc": "10/12/2003",
+        "enderecos": []
+    },
+    {
+        "id": 6,
+        "nome": "Evi",
+        "email": "evi@gmail.com",
+        "senha": "Evi123456789",
+        "tipo": "a",
+        "data_nasc": "15/11/2004",
+        "enderecos": []
     }
 ]
