@@ -6,7 +6,7 @@ from negocio.service.carrinho_service import (
     remover_item_carrinho,
     alterar_quantidade_item
 )
-from utils.utils import valida_input_eh_num
+
 from apresentacao.view.tela_produto import menu_produtos
 
 def tela_usuario(email):
@@ -47,16 +47,13 @@ def tela_usuario(email):
                         return
 
                     produto_escolhido = produtos[int(opcao) - 1]
-                    adicionar_ao_carrinho(email, produto_escolhido.id, produto_escolhido.preco)
-
-                    produto = buscar_produto_por_id(produto_escolhido.id)
-                    if produto:
+                    if produto_escolhido:
                         try:
                             quantidade = int(input("Digite a quantidade: "))
                             if quantidade <= 0:
                                 print("Quantidade inválida.")
                                 continue
-                            adicionar_ao_carrinho(email, produto_escolhido.id, quantidade, produto.preco)
+                            adicionar_ao_carrinho(email, produto_escolhido.id, quantidade)
                             print("Produto adicionado ao carrinho.")
                         except ValueError:
                             print("Quantidade inválida.")
