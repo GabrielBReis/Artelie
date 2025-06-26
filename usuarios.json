@@ -70,5 +70,32 @@
         "tipo": "u",
         "data_nasc": "01/05/2006",
         "enderecos": []
+    },
+    {
+        "id": 10,
+        "nome": "Teste",
+        "email": "teste@email.com",
+        "senha": "Senha123",
+        "tipo": null,
+        "data_nasc": null,
+        "enderecos": []
+    },
+    {
+        "id": 11,
+        "nome": "Teste",
+        "email": "teste@email.com",
+        "senha": "Senha123",
+        "tipo": null,
+        "data_nasc": null,
+        "enderecos": []
+    },
+    {
+        "id": 12,
+        "nome": "Teste",
+        "email": "teste@email.com",
+        "senha": "Senha123",
+        "tipo": null,
+        "data_nasc": null,
+        "enderecos": []
     }
 ]

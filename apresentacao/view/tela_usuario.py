@@ -9,6 +9,7 @@ from negocio.service.carrinho_service import (
 
 from apresentacao.view.tela_produto import menu_produtos
 
+
 def tela_usuario(email):
     usuario_obj = usuario.Usuario.buscar_por_email(email)
     if usuario_obj:
@@ -47,13 +48,16 @@ def tela_usuario(email):
                         return
 
                     produto_escolhido = produtos[int(opcao) - 1]
-                    if produto_escolhido:
+                    adicionar_ao_carrinho(email, produto_escolhido.id, produto_escolhido.preco)
+
+                    produto = buscar_produto_por_id(produto_escolhido.id)
+                    if produto:
                         try:
                             quantidade = int(input("Digite a quantidade: "))
                             if quantidade <= 0:
                                 print("Quantidade inválida.")
                                 continue
-                            adicionar_ao_carrinho(email, produto_escolhido.id, quantidade)
+                            adicionar_ao_carrinho(email, produto_escolhido.id, quantidade, produto.preco)
                             print("Produto adicionado ao carrinho.")
                         except ValueError:
                             print("Quantidade inválida.")

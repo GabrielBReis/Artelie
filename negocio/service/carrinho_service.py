@@ -50,6 +50,7 @@ def adicionar_ao_carrinho(email, produto_id, quantidade):
     salvar_carrinhos(carrinhos)
     print("Produto adicionado ao carrinho.")
 
+
 def remover_item_carrinho(email, produto_id):
     carrinhos = carregar_carrinhos()
     carrinhos = [c for c in carrinhos if not (c.pedido_id == email and c.produto_id == produto_id)]
