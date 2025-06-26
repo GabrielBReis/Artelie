@@ -1,5 +1,4 @@
 from negocio.model.usuario import Usuario
-from infra.repository.usuario_repository import UsuarioRepository
 from negocio.exceptions.usuario_exceptions import EmailJaCadastradoException
 
 class UsuarioService:

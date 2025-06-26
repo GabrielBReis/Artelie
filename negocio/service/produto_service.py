@@ -17,7 +17,8 @@ def carregar_produtos():
 
 def salvar_produtos(produtos):
     with open(PRODUTOS_JSON, "w", encoding="utf-8") as f:
-        json.dump([p.__dict__ for p in produtos], f, indent=2, ensure_ascii=False)
+        json.dump([p._dict_ for p in produtos], f, indent=2, ensure_ascii=False)
+
 def listar_produtos(artesao_email):
     produtos = carregar_produtos()
     encontrados = [p for p in produtos if p.artesao_id == artesao_email]
@@ -26,6 +27,15 @@ def listar_produtos(artesao_email):
     else:
         for i, p in enumerate(encontrados, 1):
             print(f"{i}. {p.nome} - {p.descricao} - R${p.preco:.2f} | Estoque: {p.estoque} | Categoria: {p.categoria}")
+            
+def listar_todos_os_produtos():
+    produtos = carregar_produtos()
+    if not produtos:
+        print("Nenhum produto disponível.")
+    else:
+        print("\n=== Produtos Disponíveis ===")
+        for i, p in enumerate(produtos, 1):
+            print(f"{i}. {p.nome} - {p.descricao} - R${p.preco:.2f} | Estoque: {p.estoque} | Categoria: {p.categoria} | Artesão: {p.artesao_id}")
 
 def adicionar_produto(artesao_email):
     nome = input("Nome do produto: ")
@@ -72,6 +82,13 @@ def remover_produto(artesao_email):
             print("Índice inválido.")
     else:
         print("Entrada inválida.")
+
+def buscar_produto_por_id(produto_id):
+    produtos = carregar_produtos()
+    for p in produtos:
+        if p.id == produto_id:
+            return p
+    return None
 
 def editar_produto(artesao_email):
     produtos = carregar_produtos()

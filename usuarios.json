@@ -43,5 +43,32 @@
         "tipo": "a",
         "data_nasc": "15/11/2004",
         "enderecos": []
+    },
+    {
+        "id": 7,
+        "nome": "Gabriel",
+        "email": "gabriel@gmail.com",
+        "senha": "Ga123456789",
+        "tipo": "u",
+        "data_nasc": "04/05/2006",
+        "enderecos": []
+    },
+    {
+        "id": 8,
+        "nome": "Helo",
+        "email": "helo@gmail.com",
+        "senha": "Ab123456789",
+        "tipo": "u",
+        "data_nasc": "12/04/2009",
+        "enderecos": []
+    },
+    {
+        "id": 9,
+        "nome": "joao",
+        "email": "joaozinho@gmail.com",
+        "senha": "Jo123456789",
+        "tipo": "u",
+        "data_nasc": "01/05/2006",
+        "enderecos": []
     }
 ]

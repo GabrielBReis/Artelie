@@ -3,6 +3,8 @@ import json
 import os
 import re
 
+from utils.utils import valida_input_eh_num
+
 USUARIOS_JSON = "usuarios.json"
 
 class Usuario:
@@ -17,8 +19,6 @@ class Usuario:
 
     def salvar(self):
         usuarios = Usuario.carregar_usuarios()
-
-        # Gera um ID único
         ids_existentes = [u.get("id", 0) for u in usuarios]
         novo_id = max(ids_existentes, default=0) + 1
         self.id = novo_id
@@ -99,7 +99,6 @@ class Usuario:
             return 0  # Email inválido, tentativa incompleta
         else:
             return 1  # Email válido
-        
 
     @staticmethod
     def buscar_por_email(email):

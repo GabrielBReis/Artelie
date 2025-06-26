@@ -1,3 +1,38 @@
+# interface/menu.py
+
+from apresentacao.view.tela_login import login
+from apresentacao.view.tela_cadastro import cadastro
+from negocio.service.carrinho_service import inicializar_carrinhos_json
+from negocio.service.produto_service import inicializar_produtos_json
+
+
+def tela_menu_principal():
+    while True:
+        print("Seja bem-vindo(a) ao Arteliê (*￣3￣)╭")
+        print("\n==== Tela Inicial ====")
+        print("1. Login")
+        print("2. Cadastro")
+        print("3. Sair")
+
+        opcao = input("Escolha uma opção (apenas números): ")
+
+        if opcao == "1":
+            print("Aguarde um momento...")
+            login()
+        elif opcao == "2":
+            print("Aguarde um momento...")
+            cadastro()
+        elif opcao == "3":
+            print("Saindo...")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+if  __name__ == "__main__":
+    inicializar_carrinhos_json()
+    inicializar_produtos_json()
+    tela_menu_principal()
+'''
 import numbers
 import os
 import re
@@ -196,3 +231,5 @@ if __name__ == "__main__":
     inicializar_json()
     inicializar_produtos_json()
     tela_inicial()
+
+    '''
