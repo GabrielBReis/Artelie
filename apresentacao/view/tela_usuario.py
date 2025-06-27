@@ -1,4 +1,5 @@
 import negocio.model.usuario as usuario
+from negocio.service.pedido_service import finalizar_pedido
 from negocio.service.produto_service import carregar_produtos, listar_todos_os_produtos, buscar_produto_por_id
 from negocio.service.carrinho_service import (
     adicionar_ao_carrinho,
@@ -27,7 +28,8 @@ def tela_usuario(email):
                 print("2. Ver produtos disponíveis")
                 print("3. Adicionar produto ao carrinho")
                 print("4. Ver carrinho")
-                print("5. Sair")
+                print("5. Finalizar pedido")
+                print("6. Sair")
                 opcao = input("Escolha uma opção: ")
 
                 if opcao == "1":
@@ -49,7 +51,7 @@ def tela_usuario(email):
                         return
 
                     produto_escolhido = produtos[int(opcao) - 1]
-                    adicionar_ao_carrinho(email, produto_escolhido.id, produto_escolhido.preco)
+                    #adicionar_ao_carrinho(email, produto_escolhido.id, produto_escolhido.preco)
 
                     produto = buscar_produto_por_id(produto_escolhido.id)
                     if produto:
@@ -58,7 +60,7 @@ def tela_usuario(email):
                             if quantidade <= 0:
                                 print("Quantidade inválida.")
                                 continue
-                            adicionar_ao_carrinho(email, produto_escolhido.id, quantidade, produto.preco)
+                            adicionar_ao_carrinho(email, produto_escolhido.id, quantidade)
                             print("Produto adicionado ao carrinho.")
                         except ValueError:
                             print("Quantidade inválida.")
@@ -72,9 +74,9 @@ def tela_usuario(email):
                         if not itens:
                             print("Carrinho vazio.")
                             break
-
+                        
                         for i, item in enumerate(itens, 1):
-                            print(f"{i}. Produto ID: {item.id} | Quantidade: {item.quantidade} | Subtotal: R${item.subtotal:.2f}")
+                            print(f"{i}. Produto ID: {item.id} |Nome do produto: {item.nome_produto} | Quantidade: {item.quantidade} | Subtotal: R${item.subtotal:.2f}")
 
                         print("\n1. Alterar quantidade")
                         print("2. Remover item")
@@ -86,7 +88,7 @@ def tela_usuario(email):
                             if idx.isdigit() and 1 <= int(idx) <= len(itens):
                                 item = itens[int(idx) - 1]
                                 nova_qtd = int(input("Nova quantidade: "))
-                                alterar_quantidade_item(email, item.id, nova_qtd, item.subtotal / item.quantidade)
+                                alterar_quantidade_item(email, item.id, nova_qtd)
                                 print("Quantidade atualizada.")
                             else:
                                 print("Índice inválido.")
@@ -104,10 +106,10 @@ def tela_usuario(email):
                             break
                         else:
                             print("Opção inválida.")
-
                 elif opcao == "5":
+                    finalizar_pedido(email)
+                elif opcao == "6":
                     break
-
                 else:
                     print("Opção inválida.")
     else:

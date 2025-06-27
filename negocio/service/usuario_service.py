@@ -103,6 +103,7 @@ def verificar_email(email):
         return 0  # Email inválido, tentativa incompleta
     else:
         return 1  # Email válido
+    
 
 def buscar_por_email(email):
     usuarios = carregar_usuarios()
