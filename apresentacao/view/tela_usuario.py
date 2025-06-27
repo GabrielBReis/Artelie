@@ -8,10 +8,11 @@ from negocio.service.carrinho_service import (
 )
 
 from apresentacao.view.tela_produto import menu_produtos
+from negocio.service.usuario_service import buscar_por_email
 
 
 def tela_usuario(email):
-    usuario_obj = usuario.Usuario.buscar_por_email(email)
+    usuario_obj = buscar_por_email(email)
     if usuario_obj:
         print(f"\nBem-vindo, {usuario_obj.nome}!")
 

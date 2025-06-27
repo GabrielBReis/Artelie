@@ -1,6 +1,5 @@
 from apresentacao.view.tela_cadastro import cadastro
 from apresentacao.view.tela_login import login
-import negocio.model.usuario as usuario
 from negocio.service.produto_service import *
 
 USUARIOS_JSON = "usuarios.json"

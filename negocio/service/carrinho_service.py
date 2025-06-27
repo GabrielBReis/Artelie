@@ -4,6 +4,7 @@ import uuid
 from negocio.model.carrinho import Carrinho
 from negocio.service.produto_service import carregar_produtos
 
+
 CARRINHOS_JSON = "carrinhos.json"
 
 def inicializar_carrinhos_json():

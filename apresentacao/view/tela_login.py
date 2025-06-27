@@ -1,12 +1,16 @@
 # apresentacao/view/tela_login.py
 
-import negocio.model.usuario as usuario
+from negocio.service.usuario_service import (
+     autenticar,
+     autenticar_email,
+     verificar_email
+)
 from apresentacao.view.tela_usuario import tela_usuario
 from apresentacao.view.tela_cadastro import cadastro
 from utils.utils import valida_input_eh_num
 
 def verificar_email(email):
-    if not usuario.Usuario.autenticar_email(email):
+    if not autenticar_email(email):
         print("Email não encontrado. Você já possui cadastro?\n1. Sim\n2. Não")
         resposta = input("Insira apenas números: ")
 
@@ -52,7 +56,7 @@ def login():
                 print("Por favor, insira apenas números.")
 
     senha = input("Senha: ")
-    if usuario.Usuario.autenticar(email, senha):
+    if autenticar(email, senha):
         print("Login efetuado com sucesso.\nAcessando perfil de usuário...")
         tela_usuario(email)
     else:
