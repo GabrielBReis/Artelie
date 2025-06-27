@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "6a298ec8-f5ce-43f8-b2f1-bf42fb2471ae",
+    "nome": "Produto Teste",
+    "descricao": "Desc teste",
+    "preco": 99.9,
+    "categoria": "Categoria Teste",
+    "estoque": 10,
+    "artesao_id": "artesao@teste.com",
+    "fotos": [],
+    "avaliacoes": []
+  }
+]

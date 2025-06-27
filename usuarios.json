@@ -340,5 +340,23 @@
         "tipo": null,
         "data_nasc": null,
         "enderecos": []
+    },
+    {
+        "id": 40,
+        "nome": "JoaoSamplix",
+        "email": "Jsamplix@gmail.com",
+        "senha": "Ja123456789",
+        "tipo": "u",
+        "data_nasc": "12/12/2001",
+        "enderecos": []
+    },
+    {
+        "id": 41,
+        "nome": "maria",
+        "email": "mari@gmail.com",
+        "senha": "Ma123456789",
+        "tipo": "u",
+        "data_nasc": "02/02/2002",
+        "enderecos": []
     }
 ]

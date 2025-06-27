@@ -1,60 +1,83 @@
 [
   {
-    "id": "7916d90f-d2f5-4981-a468-26d20f2ab781",
-    "usuario_id": "helo@gmail.com",
-    "data": "27/06/2025 09:50:08",
-    "total": 21.0,
+    "id": "51996072-329c-441a-b36b-67cc595c663c",
+    "usuario_id": "sam@gmail.com",
+    "data": "2025-06-27 14:08:42",
+    "total": 3.0,
     "itens": [
       {
-        "id": "748c78de-580c-4fb1-9562-1bdc885a8b3f",
-        "pedido_id": "helo@gmail.com",
+        "id": "f6be75f0-fad3-4ce7-8479-278411c73d6b",
+        "pedido_id": "sam@gmail.com",
         "produto_id": "608454ea-85b2-4d77-9266-72213c1f7e7d",
-        "quantidade": 9.0,
-        "subtotal": 9.0
-      },
+        "quantidade": 3,
+        "subtotal": 3.0
+      }
+    ]
+  },
+  {
+    "id": "8df14a70-860b-4a3b-ac2d-920092ea6ae2",
+    "usuario_id": "sam@gmail.com",
+    "data": "2025-06-27 14:09:46",
+    "total": 60.0,
+    "itens": [
       {
-        "id": "83be4267-47f4-4042-b7d1-c9c766d68e3f",
-        "pedido_id": "helo@gmail.com",
-        "produto_id": "608454ea-85b2-4d77-9266-72213c1f7e7d",
-        "quantidade": 2,
-        "subtotal": 2.0
-      },
+        "id": "6fddb324-e259-4f6a-84c5-81e335aa7f9a",
+        "pedido_id": "sam@gmail.com",
+        "produto_id": "37a662ed-f84b-49d6-bbaa-163a553f6c88",
+        "quantidade": 4,
+        "subtotal": 60.0
+      }
+    ]
+  },
+  {
+    "id": "f5cf29f9-ec84-4eb1-bef7-29ea39faa835",
+    "usuario_id": "sam@gmail.com",
+    "data": "2025-06-27 14:10:38",
+    "total": 78.0,
+    "itens": [
       {
-        "id": "830fd029-80d0-4523-9bdb-465c7380e78a",
-        "pedido_id": "helo@gmail.com",
-        "produto_id": "608454ea-85b2-4d77-9266-72213c1f7e7d",
-        "quantidade": 5,
-        "subtotal": 5.0
-      },
-      {
-        "id": "6969978b-e66a-4dfc-ab86-277c639a3f9c",
-        "pedido_id": "helo@gmail.com",
+        "id": "e04b4b11-8cb6-4081-a3f8-ce206cbcf94f",
+        "pedido_id": "sam@gmail.com",
         "produto_id": "608454ea-85b2-4d77-9266-72213c1f7e7d",
         "quantidade": 3,
         "subtotal": 3.0
       },
       {
-        "id": "7d578b60-8afb-4d6e-8d4b-f1cac8a8631f",
-        "pedido_id": "helo@gmail.com",
-        "produto_id": "608454ea-85b2-4d77-9266-72213c1f7e7d",
-        "quantidade": 2,
-        "subtotal": 2.0
+        "id": "77468a4d-5519-4cdd-8756-e0ae601d5f45",
+        "pedido_id": "sam@gmail.com",
+        "produto_id": "37a662ed-f84b-49d6-bbaa-163a553f6c88",
+        "quantidade": 5,
+        "subtotal": 75.0
       }
     ]
   },
   {
-    "id": "bc74da0e-4213-43e6-9c40-f91b9518214a",
-    "usuario_id": "helo@gmail.com",
-    "data": "27/06/2025 10:03:58",
-    "total": 8.0,
+    "id": "5b0a12d1-816a-4448-af9d-4f49ccb1d065",
+    "usuario_id": "joao@gmail.com",
+    "data": "2025-06-27 15:04:19",
+    "total": 60.0,
     "itens": [
       {
-        "id": "6117f8e2-dad6-42c1-9198-f441e2509648",
-        "pedido_id": "helo@gmail.com",
+        "id": "cf3c2da5-d1e6-405e-bd2c-c9368499ebbe",
+        "pedido_id": "joao@gmail.com",
+        "produto_id": "37a662ed-f84b-49d6-bbaa-163a553f6c88",
+        "quantidade": 4,
+        "subtotal": 60.0
+      }
+    ]
+  },
+  {
+    "id": "19e7bd9e-7177-4002-8f11-2fdbdfa691e3",
+    "usuario_id": "joao@gmail.com",
+    "data": "2025-06-27 16:05:20",
+    "total": 3.0,
+    "itens": [
+      {
+        "id": "5f043f84-d2c0-4e35-8580-2a139441bd8c",
+        "pedido_id": "joao@gmail.com",
         "produto_id": "608454ea-85b2-4d77-9266-72213c1f7e7d",
-        "nome_produto": "garrafa ",
-        "quantidade": 8,
-        "subtotal": 8.0
+        "quantidade": 3,
+        "subtotal": 3.0
       }
     ]
   }

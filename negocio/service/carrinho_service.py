@@ -4,7 +4,6 @@ import uuid
 from negocio.model.carrinho import Carrinho
 from negocio.service.produto_service import carregar_produtos
 
-
 CARRINHOS_JSON = "carrinhos.json"
 
 def inicializar_carrinhos_json():
@@ -19,13 +18,18 @@ def carregar_carrinhos():
 
 def salvar_carrinhos(carrinhos):
     with open(CARRINHOS_JSON, "w", encoding="utf-8") as f:
-        json.dump([c.__dict__ for c in carrinhos], f, indent=2, ensure_ascii=False)
+        json.dump([{
+            "id": c.id,
+            "pedido_id": c.pedido_id,
+            "produto_id": c.produto_id,
+            "quantidade": c.quantidade,
+            "subtotal": c.subtotal
+        } for c in carrinhos], f, indent=2, ensure_ascii=False)
+
 
 def listar_carrinho_do_usuario(email):
     carrinhos = carregar_carrinhos()
     return [c for c in carrinhos if c.pedido_id == email]  # usamos email como identificador do carrinho temporário
-
-from negocio.service.produto_service import carregar_produtos, salvar_produtos
 
 def adicionar_ao_carrinho(email, produto_id, quantidade):
     produtos = carregar_produtos()
@@ -34,29 +38,24 @@ def adicionar_ao_carrinho(email, produto_id, quantidade):
         print("Produto não encontrado.")
         return
 
-    if quantidade > produto.estoque:
-        print(f"Estoque insuficiente. Disponível: {produto.estoque}")
-        return
-
     carrinhos = carregar_carrinhos()
+    carrinho_usuario = [c for c in carrinhos if c.pedido_id == email and c.produto_id == produto_id]
 
-    for _ in range(quantidade):
-        novo_item = Carrinho(
+    if carrinho_usuario:
+        carrinho = carrinho_usuario[0]
+        carrinho.adicionar_produto(produto_id, quantidade, produto.preco)
+    else:
+        novo = Carrinho(
             id=str(uuid.uuid4()),
             pedido_id=email,
-            produto_id=produto.id,
-            nome_produto=produto.nome,
-            quantidade=1,
-            subtotal=produto.preco
+            produto_id=produto_id,
+            quantidade=quantidade,
+            subtotal=produto.preco * quantidade
         )
-        carrinhos.append(novo_item)
+        carrinhos.append(novo)
 
-    # Atualizar estoque
-    produto.estoque -= quantidade
     salvar_carrinhos(carrinhos)
-    salvar_produtos(produtos)
-
-    print("Produto(s) adicionado(s) ao carrinho.")
+    print("Produto adicionado ao carrinho.")
 
 
 def remover_item_carrinho(email, produto_id):
@@ -84,10 +83,3 @@ def alterar_quantidade_item(email, produto_id, nova_quantidade):
 def listar_itens_carrinho(pedido_id):
     carrinho = carregar_carrinhos()
     return [item for item in carrinho if item.pedido_id == pedido_id]
-
-def limpar_carrinho(email):
-    carrinhos = carregar_carrinhos()
-    carrinhos = [c for c in carrinhos if c.pedido_id != email]
-    salvar_carrinhos(carrinhos)
-
-
