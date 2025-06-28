@@ -1,20 +1,119 @@
 [
     {
-        "id": 1,
-        "nome": "biel",
-        "email": "nnnn",
-        "senha": "no",
-        "tipo": "u",
-        "data_nasc": "12/12/2012",
+        "id": 3,
+        "nome": "samplix",
+        "email": "samplix@gmail.com",
+        "senha": "$Samplix123",
+        "tipo": "a",
+        "data_nasc": "17/01/2003",
         "enderecos": []
     },
     {
-        "id": 2,
+        "id": 4,
+        "nome": "teste2",
+        "email": "teste@gmail.com",
+        "senha": "Teste@123",
+        "tipo": "a",
+        "data_nasc": "12/05/1980",
+        "enderecos": []
+    },
+    {
+        "id": 5,
+        "nome": "Bruno",
+        "email": "Bruno@gmail.com",
+        "senha": "Bru123456789",
+        "tipo": "u",
+        "data_nasc": "10/12/2003",
+        "enderecos": []
+    },
+    {
+        "id": 6,
+        "nome": "Evi",
+        "email": "evi@gmail.com",
+        "senha": "Evi123456789",
+        "tipo": "a",
+        "data_nasc": "15/11/2004",
+        "enderecos": []
+    },
+    {
+        "id": 7,
         "nome": "Gabriel",
-        "email": "gab@gmail.com",
+        "email": "gabriel@gmail.com",
+        "senha": "Ga123456789",
+        "tipo": "u",
+        "data_nasc": "04/05/2006",
+        "enderecos": []
+    },
+    {
+        "id": 8,
+        "nome": "Helo",
+        "email": "helo@gmail.com",
         "senha": "Ab123456789",
         "tipo": "u",
-        "data_nasc": "27/10/2004",
+        "data_nasc": "12/04/2009",
+        "enderecos": []
+    },
+    {
+        "id": 9,
+        "nome": "joao",
+        "email": "joaozinho@gmail.com",
+        "senha": "Jo123456789",
+        "tipo": "u",
+        "data_nasc": "01/05/2006",
+        "enderecos": []
+    },
+    {
+        "id": 11,
+        "nome": "Teste",
+        "email": "teste@email.com",
+        "senha": "Senha123",
+        "tipo": null,
+        "data_nasc": null,
+        "enderecos": []
+    },
+    {
+        "id": 16,
+        "nome": "paty",
+        "email": "paty@gmail.com",
+        "senha": "Pa123456789",
+        "tipo": "u",
+        "data_nasc": "11/03/1943",
+        "enderecos": []
+    },
+    {
+        "id": 40,
+        "nome": "JoaoSamplix",
+        "email": "Jsamplix@gmail.com",
+        "senha": "Ja123456789",
+        "tipo": "u",
+        "data_nasc": "12/12/2001",
+        "enderecos": []
+    },
+    {
+        "id": 41,
+        "nome": "maria",
+        "email": "mari@gmail.com",
+        "senha": "Ma123456789",
+        "tipo": "u",
+        "data_nasc": "02/02/2002",
+        "enderecos": []
+    },
+    {
+        "id": 42,
+        "nome": "sergio",
+        "email": "sergio@gmail.com",
+        "senha": "$2b$12$8xsAYSg2BjVwycNXQROPzOM1O6Wu0NpprVNbOdYJlYWmuVzXg6yxy",
+        "tipo": "u",
+        "data_nasc": "02/05/1963",
+        "enderecos": []
+    },
+    {
+        "id": 43,
+        "nome": "Evila",
+        "email": "evi@gmail.com",
+        "senha": "$2b$12$BsdCKVF04er2WDJKvHF3Y.sdo8uEoAenE4OLELagBnG1qX7b1hhwm",
+        "tipo": "u",
+        "data_nasc": "12/06/2003",
         "enderecos": []
     },
     {

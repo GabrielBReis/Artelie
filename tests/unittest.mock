@@ -1,0 +1,10 @@
+# tests/test_tela_usuario.py
+from unittest import TestCase
+from unittest.mock import patch
+from apresentacao.view import tela_usuario
+
+class TestTelaUsuario(TestCase):
+    @patch('builtins.input', side_effect=['5'])  # simula "Sair" no menu
+    def test_entrada_simples(self, mock_input):
+        tela_usuario.tela_usuario("email@exemplo.com")
+        self.assertTrue(mock_input.called)
