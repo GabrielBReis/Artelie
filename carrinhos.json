@@ -1,0 +1,16 @@
+[
+  {
+    "id": "27b0133d-f4ee-493f-942f-8ebe7bd1e097",
+    "pedido_id": "Bruno@gmail.com",
+    "produto_id": "608454ea-85b2-4d77-9266-72213c1f7e7d",
+    "quantidade": 3.0,
+    "subtotal": 3.0
+  },
+  {
+    "id": "0ed000f1-2f26-4980-8233-497778e6bd19",
+    "pedido_id": "Bruno@gmail.com",
+    "produto_id": "37a662ed-f84b-49d6-bbaa-163a553f6c88",
+    "quantidade": 17.0,
+    "subtotal": 255.0
+  }
+]
