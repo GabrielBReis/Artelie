@@ -6,6 +6,7 @@ from utils.utils import valida_input_eh_num
 from datetime import datetime
 import json
 import os
+from utils.security import hash_senha, verificar_senha
 
 USUARIOS_JSON = os.environ.get("USUARIOS_JSON", "usuarios.json")
 
@@ -14,16 +15,16 @@ def inicializar_json():
     if not os.path.exists(USUARIOS_JSON):
         with open(USUARIOS_JSON, "w", encoding="utf-8") as f:
             f.write("[]")
-            
+
 def cadastrar_usuario(self, dto):
     if self.repository.buscar_por_email(dto.email):
         raise EmailJaCadastradoException()
-    
+
     usuario = Usuario(
         id=None,
         nome=dto.nome,
         email=dto.email,
-        senha=dto.senha,  
+        senha=dto.senha,
         perfil=dto.perfil
     )
     return self.repository.salvar(usuario)
@@ -34,11 +35,13 @@ def salvar(self):
     novo_id = max(ids_existentes, default=0) + 1
     self.id = novo_id
 
+    senha_hash = hash_senha(self.senha)
+
     novo_usuario = {
         "id": self.id,
         "nome": self.nome,
         "email": self.email,
-        "senha": self.senha,
+        "senha": senha_hash,
         "tipo": self.tipo,
         "data_nasc": self.data_nasc,
         "enderecos": self.enderecos
@@ -82,7 +85,7 @@ def validar_data(data):
         return True
     except ValueError:
         return False
-    
+
 def validar_endereco(endereco):
     return endereco and len(endereco.strip()) >= 5
 
@@ -103,7 +106,7 @@ def verificar_email(email):
         return 0  # Email inválido, tentativa incompleta
     else:
         return 1  # Email válido
-    
+
 
 def buscar_por_email(email):
     usuarios = carregar_usuarios()

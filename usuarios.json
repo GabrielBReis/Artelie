@@ -1,14 +1,5 @@
 [
     {
-        "id": 1,
-        "nome": "",
-        "email": "blas@gmail.com",
-        "senha": "As123456789",
-        "tipo": "u",
-        "data_nasc": "12/02/2005",
-        "enderecos": []
-    },
-    {
         "id": 3,
         "nome": "samplix",
         "email": "samplix@gmail.com",
@@ -72,52 +63,7 @@
         "enderecos": []
     },
     {
-        "id": 10,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
         "id": 11,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 12,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 13,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 14,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 15,
         "nome": "Teste",
         "email": "teste@email.com",
         "senha": "Senha123",
@@ -132,213 +78,6 @@
         "senha": "Pa123456789",
         "tipo": "u",
         "data_nasc": "11/03/1943",
-        "enderecos": []
-    },
-    {
-        "id": 17,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 18,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 19,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 20,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 21,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 22,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 23,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 24,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 25,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 26,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 27,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 28,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 29,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 30,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 31,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 32,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 33,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 34,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 35,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 36,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 37,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 38,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
-        "enderecos": []
-    },
-    {
-        "id": 39,
-        "nome": "Teste",
-        "email": "teste@email.com",
-        "senha": "Senha123",
-        "tipo": null,
-        "data_nasc": null,
         "enderecos": []
     },
     {
@@ -357,6 +96,24 @@
         "senha": "Ma123456789",
         "tipo": "u",
         "data_nasc": "02/02/2002",
+        "enderecos": []
+    },
+    {
+        "id": 42,
+        "nome": "sergio",
+        "email": "sergio@gmail.com",
+        "senha": "$2b$12$8xsAYSg2BjVwycNXQROPzOM1O6Wu0NpprVNbOdYJlYWmuVzXg6yxy",
+        "tipo": "u",
+        "data_nasc": "02/05/1963",
+        "enderecos": []
+    },
+    {
+        "id": 43,
+        "nome": "Evila",
+        "email": "evi@gmail.com",
+        "senha": "$2b$12$BsdCKVF04er2WDJKvHF3Y.sdo8uEoAenE4OLELagBnG1qX7b1hhwm",
+        "tipo": "u",
+        "data_nasc": "12/06/2003",
         "enderecos": []
     }
 ]

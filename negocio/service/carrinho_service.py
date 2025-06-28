@@ -32,6 +32,10 @@ def listar_carrinho_do_usuario(email):
     return [c for c in carrinhos if c.pedido_id == email]  # usamos email como identificador do carrinho temporário
 
 def adicionar_ao_carrinho(email, produto_id, quantidade):
+    if quantidade <= 0:
+        print("Quantidade inválida. Deve ser maior que zero.")
+        return
+
     produtos = carregar_produtos()
     produto = next((p for p in produtos if p.id == produto_id), None)
     if not produto:
@@ -65,6 +69,9 @@ def remover_item_carrinho(email, produto_id):
     print("Item removido do carrinho.")
 
 def alterar_quantidade_item(email, produto_id, nova_quantidade):
+    if nova_quantidade <= 0:
+        print("Quantidade inválida. Deve ser maior que zero.")
+        return
     carrinhos = carregar_carrinhos()
     produtos = carregar_produtos()
     produto = next((p for p in produtos if p.id == produto_id), None)

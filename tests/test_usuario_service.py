@@ -66,6 +66,8 @@ class TestUsuario(unittest.TestCase):
         self.assertTrue(validar_email("teste.email@dominio.com.br"))
         self.assertFalse(validar_email("emailinvalido"))
         self.assertFalse(validar_email("email@invalido."))
+        self.assertFalse(validar_email("@vazio.com"))
+        self.assertFalse(validar_email("email@.com"))
 
     def test_validar_senha(self):
         self.assertTrue(validar_senha("Senha123"))
@@ -73,6 +75,7 @@ class TestUsuario(unittest.TestCase):
         self.assertFalse(validar_senha("senhafraca"))
         self.assertFalse(validar_senha("12345678"))
         self.assertFalse(validar_senha("SENHA123"))
+        self.assertFalse(validar_senha("abcdefgH"))
 
     def test_validar_data(self):
         self.assertTrue(validar_data("01/01/2000"))
@@ -80,6 +83,24 @@ class TestUsuario(unittest.TestCase):
         self.assertFalse(validar_data("32/01/2000"))  # Dia inválido
         self.assertFalse(validar_data("01/13/2000"))  # Mês inválido
         self.assertFalse(validar_data("01-01-2000"))  # Formato inválido
+        self.assertFalse(validar_data("2000/01/01"))  # Formato inválido
+        self.assertFalse(validar_data("abcd"))
+
+    @patch("negocio.service.usuario_service.USUARIOS_JSON", new="test_usuarios.json")
+    def test_salvar_multiplos_usuarios(self):
+        usuarios = [
+            Usuario("User 1", "u1@email.com", "Senha123"),
+            Usuario("User 2", "u2@email.com", "Senha456")
+        ]
+        for u in usuarios:
+            salvar(u)
+
+        with open(self.test_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            self.assertEqual(len(data), 2)
+            emails = [u["email"] for u in data]
+            self.assertIn("u1@email.com", emails)
+            self.assertIn("u2@email.com", emails)
 
 if __name__ == '__main__':
     unittest.main()

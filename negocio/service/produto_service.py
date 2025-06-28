@@ -27,7 +27,7 @@ def listar_produtos(artesao_email):
     else:
         for i, p in enumerate(encontrados, 1):
             print(f"{i}. {p.nome} - {p.descricao} - R${p.preco:.2f} | Estoque: {p.estoque} | Categoria: {p.categoria}")
-            
+
 def listar_todos_os_produtos():
     produtos = carregar_produtos()
     if not produtos:
@@ -47,7 +47,7 @@ def adicionar_produto(artesao_email):
         print("Preço ou estoque inválidos.")
         return
     categoria = input("Categoria: ")
-    
+
     novo = Produto(
         id=str(uuid.uuid4()),
         nome=nome,
